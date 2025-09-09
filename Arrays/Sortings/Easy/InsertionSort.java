@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class InsertionSortDynamic {
+class InsertionSort {
     static void insertionSort(int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
