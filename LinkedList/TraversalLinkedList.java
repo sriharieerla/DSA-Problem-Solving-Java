@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+
+    // Insert at end
+    void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+
+    // Traversal - print list
+    void traverse() {
+        if (head == null) {
+            System.out.println("Linked List is empty!");
+            return;
+        }
+        Node temp = head;
+        System.out.print("Linked List: ");
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+}
+
+public class TraversalLinkedList {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        LinkedList ll = new LinkedList();
+
+        System.out.println("Enter elements for Linked List (-1 to stop):");
+        while (true) {
+            int val = sc.nextInt();
+            if (val == -1) break;
+            ll.insertAtEnd(val);
+        }
+
+        ll.traverse();  // print the linked list
+        sc.close();
+    }
+}
